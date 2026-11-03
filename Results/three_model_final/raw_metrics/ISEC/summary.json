@@ -1,0 +1,47 @@
+{
+  "requested_trials": 240,
+  "successful_trials": 240,
+  "failed_trials": 0,
+  "completed_epochs": {
+    "jscc": 150,
+    "denoiser": 150
+  },
+  "split": "Kodak24 test",
+  "iterations": 50,
+  "complete_link_certified": true,
+  "pilot": false,
+  "ci_method": "bootstrap24 image means;2000 resamples;seed22",
+  "latency_aggregation_eligible": false,
+  "latency_note": "Two TeslaT4 runtime stacks; per-trial times descriptive only; no matched-host ranking",
+  "rate_scope": "native CBR1/16; DeepJSCC/ADJSCC CBR1/6; not an equal-rate ranking",
+  "psnr_db": 14.87273436886152,
+  "psnr_db_ci95": [
+    14.354971667672205,
+    15.466186564882229
+  ],
+  "ssim": 0.4659339727833867,
+  "ssim_ci95": [
+    0.42140654733094074,
+    0.508543043229729
+  ],
+  "ms_ssim": 0.472526353225112,
+  "ms_ssim_ci95": [
+    0.4317603402150173,
+    0.513917342827966
+  ],
+  "lpips": 0.8003883336981138,
+  "lpips_ci95": [
+    0.7681868547387422,
+    0.8336440928714972
+  ],
+  "mse": 0.03417058345318461,
+  "mse_ci95": [
+    0.030014862036817552,
+    0.03832755237148376
+  ],
+  "cbr_complex_per_rgb_sample": 0.0625,
+  "cbr_complex_per_rgb_sample_ci95": [
+    0.0625,
+    0.0625
+  ]
+}

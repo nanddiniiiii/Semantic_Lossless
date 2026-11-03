@@ -1,0 +1,248 @@
+{
+  "same_host": true,
+  "matched_input": true,
+  "device": "CPU",
+  "precision": "float32",
+  "results": {
+    "deepjscc": {
+      "model": "deepjscc",
+      "hardware": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "processor": "x86_64",
+        "machine": "x86_64",
+        "logical_cpu_count": 4,
+        "cpuinfo": "processor\t: 0\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 79\nmodel name\t: Intel(R) Xeon(R) CPU @ 2.20GHz\nstepping\t: 0\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2199.998\ncache size\t: 56320 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 0\ncpu cores\t: 2\napicid\t\t: 0\ninitial apicid\t: 0\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 13\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities\nbugs\t\t: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa mmio_stale_data retbleed bhi spectre_v2_user its\nbogomips\t: 4399.99\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 1\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 79\nmodel name\t: Intel(R) Xeon(R) CPU @ 2.20GHz\nstepping\t: 0\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2199.998\ncache size\t: 56320 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 1\ncpu cores\t: 2\napicid\t\t: 2\ninitial apicid\t: 2\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 13\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities\nbugs\t\t: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa mmio_stale_data retbleed bhi spectre_v2_user its\nbogomips\t: 4399.99\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 2\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 79\nmodel name\t: Intel(R) Xeon(R) CPU @ 2.20GHz\nstepping\t: 0\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2199.998\ncache size\t: 56320 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 0\ncpu cores\t: 2\napicid\t\t: 1\ninitial apicid\t: 1\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 13\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities\nbugs\t\t: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa mmio_stale_data retbleed bhi spectre_v2_user its\nbogomips\t: 4399.99\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 3\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 79\nmodel name\t: Intel(R) Xeon(R) CPU @ 2.20GHz\nstepping\t: 0\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2199.998\ncache size\t: 56320 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 1\ncpu cores\t: 2\napicid\t\t: 3\ninitial apicid\t: 3\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 13\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities\nbugs\t\t: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa mmio_stale_data retbleed bhi spectre_v2_user its\nbogomips\t: 4399.99\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\n",
+        "affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+        "environment": {
+          "CUDA_VISIBLE_DEVICES": "-1",
+          "OMP_NUM_THREADS": "2",
+          "MKL_NUM_THREADS": "2",
+          "OPENBLAS_NUM_THREADS": "2",
+          "TF_NUM_INTRAOP_THREADS": "2",
+          "TF_NUM_INTEROP_THREADS": "1"
+        }
+      },
+      "checkpoint_sha256": "1a4aabd9fdbdbbb9c68a6b31429d4448dcaa0b3bcb216080d1063ab536320ef7",
+      "input_sha256": "ba1fe65325fe2bf48454ae324147df0a3b2bb060007dcd59c86767ce678783b4",
+      "input_shape": [
+        1,
+        512,
+        768,
+        3
+      ],
+      "precision": "float32",
+      "device": "CPU",
+      "warmup": 3,
+      "repeats": 10,
+      "intraop_threads": 2,
+      "interop_threads": 1,
+      "execution": "native eager inference; no gradients; no training",
+      "endpoint": "includes synchronous output numpy materialization/copy; excludes input decode, checkpoint load and model build",
+      "component_note": "independent timed calls with fixed precomputed inputs; component medians need not sum to end-to-end",
+      "timings": {
+        "encoder": {
+          "repeats_seconds": [
+            0.04400590900002044,
+            0.04371740200002705,
+            0.056800449000036224,
+            0.056976425000016206,
+            0.06008607899997287,
+            0.05650926399999889,
+            0.05809910900001114,
+            0.05668292600000768,
+            0.056128693000005114,
+            0.05920460400000138
+          ],
+          "p50_seconds": 0.05674168750002195,
+          "p95_seconds": 0.0596894152499857,
+          "mean_seconds": 0.0548210860000097
+        },
+        "channel": {
+          "repeats_seconds": [
+            0.005247030000020914,
+            0.0052310629999965386,
+            0.00458160499999849,
+            0.005684204000033333,
+            0.005271448999963013,
+            0.0055725839999922755,
+            0.004448942999999872,
+            0.005430201999956807,
+            0.005014207000044735,
+            0.0047639640000056716
+          ],
+          "p50_seconds": 0.005239046500008726,
+          "p95_seconds": 0.0056339750000148564,
+          "mean_seconds": 0.005124525100001165
+        },
+        "decoder": {
+          "repeats_seconds": [
+            0.07890877199997703,
+            0.07907734299999447,
+            0.08264708799998743,
+            0.0809590850000177,
+            0.07832386500001576,
+            0.0802408590000141,
+            0.07744975999997905,
+            0.07807676100003391,
+            0.08063964400002988,
+            0.07684891200000266
+          ],
+          "p50_seconds": 0.07899305749998575,
+          "p95_seconds": 0.08188748665000105,
+          "mean_seconds": 0.0793172089000052
+        },
+        "end_to_end": {
+          "repeats_seconds": [
+            0.14546748399999387,
+            0.14315742399998044,
+            0.146997558999999,
+            0.14332670500004951,
+            0.1434008859999949,
+            0.1396521640000401,
+            0.14418690499996956,
+            0.14771380299998782,
+            0.14062111399999822,
+            0.14120334099999354
+          ],
+          "p50_seconds": 0.1433637955000222,
+          "p95_seconds": 0.14739149319999284,
+          "mean_seconds": 0.14357273850000069
+        }
+      },
+      "framework_version": "2.11.0+cpu",
+      "strict_checkpoint_reload": true,
+      "trained_epochs": 150,
+      "model_source_sha256": "58ea9e7ab141e01c23424e3633d76c0e8a5751f360a04525ad07cf1e8f72cd4b",
+      "component_equivalence": "torch.equal with identical channel RNG",
+      "parameters": 156483,
+      "checkpoint_unchanged": true
+    },
+    "adjscc": {
+      "model": "adjscc",
+      "hardware": {
+        "platform": "Linux-6.18.55+-x86_64-with-glibc2.39",
+        "processor": "x86_64",
+        "machine": "x86_64",
+        "logical_cpu_count": 4,
+        "cpuinfo": "processor\t: 0\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 79\nmodel name\t: Intel(R) Xeon(R) CPU @ 2.20GHz\nstepping\t: 0\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2199.998\ncache size\t: 56320 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 0\ncpu cores\t: 2\napicid\t\t: 0\ninitial apicid\t: 0\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 13\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities\nbugs\t\t: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa mmio_stale_data retbleed bhi spectre_v2_user its\nbogomips\t: 4399.99\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 1\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 79\nmodel name\t: Intel(R) Xeon(R) CPU @ 2.20GHz\nstepping\t: 0\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2199.998\ncache size\t: 56320 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 1\ncpu cores\t: 2\napicid\t\t: 2\ninitial apicid\t: 2\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 13\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities\nbugs\t\t: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa mmio_stale_data retbleed bhi spectre_v2_user its\nbogomips\t: 4399.99\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 2\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 79\nmodel name\t: Intel(R) Xeon(R) CPU @ 2.20GHz\nstepping\t: 0\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2199.998\ncache size\t: 56320 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 0\ncpu cores\t: 2\napicid\t\t: 1\ninitial apicid\t: 1\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 13\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities\nbugs\t\t: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa mmio_stale_data retbleed bhi spectre_v2_user its\nbogomips\t: 4399.99\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\nprocessor\t: 3\nvendor_id\t: GenuineIntel\ncpu family\t: 6\nmodel\t\t: 79\nmodel name\t: Intel(R) Xeon(R) CPU @ 2.20GHz\nstepping\t: 0\nmicrocode\t: 0xffffffff\ncpu MHz\t\t: 2199.998\ncache size\t: 56320 KB\nphysical id\t: 0\nsiblings\t: 4\ncore id\t\t: 1\ncpu cores\t: 2\napicid\t\t: 3\ninitial apicid\t: 3\nfpu\t\t: yes\nfpu_exception\t: yes\ncpuid level\t: 13\nwp\t\t: yes\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch pti ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt arat md_clear arch_capabilities\nbugs\t\t: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa mmio_stale_data retbleed bhi spectre_v2_user its\nbogomips\t: 4399.99\nclflush size\t: 64\ncache_alignment\t: 64\naddress sizes\t: 46 bits physical, 48 bits virtual\npower management:\n\n",
+        "affinity": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+        "environment": {
+          "CUDA_VISIBLE_DEVICES": "-1",
+          "OMP_NUM_THREADS": "2",
+          "MKL_NUM_THREADS": "2",
+          "OPENBLAS_NUM_THREADS": "2",
+          "TF_NUM_INTRAOP_THREADS": "2",
+          "TF_NUM_INTEROP_THREADS": "1"
+        }
+      },
+      "checkpoint_sha256": "385b3c1a85b764c66e8e5ae156cbcab21a944873fdbcea511830db5d56784df7",
+      "input_sha256": "ba1fe65325fe2bf48454ae324147df0a3b2bb060007dcd59c86767ce678783b4",
+      "input_shape": [
+        1,
+        512,
+        768,
+        3
+      ],
+      "precision": "float32",
+      "device": "CPU",
+      "warmup": 3,
+      "repeats": 10,
+      "intraop_threads": 2,
+      "interop_threads": 1,
+      "execution": "native eager inference; no gradients; no training",
+      "endpoint": "includes synchronous output numpy materialization/copy; excludes input decode, checkpoint load and model build",
+      "component_note": "independent timed calls with fixed precomputed inputs; component medians need not sum to end-to-end",
+      "timings": {
+        "encoder": {
+          "repeats_seconds": [
+            4.2703307340000265,
+            4.229659318000017,
+            4.317138259000046,
+            4.270329815000025,
+            4.271867475000022,
+            4.2856129000000465,
+            4.264607335000051,
+            4.295423816999914,
+            4.255799205000017,
+            4.290675997999983
+          ],
+          "p50_seconds": 4.271099104500024,
+          "p95_seconds": 4.3073667600999865,
+          "mean_seconds": 4.2751444856000145
+        },
+        "channel": {
+          "repeats_seconds": [
+            0.015703438000059577,
+            0.015732094999975743,
+            0.015845228999978644,
+            0.015550093000001652,
+            0.016026785999997628,
+            0.016966502000059336,
+            0.016091682000023866,
+            0.015965668000035294,
+            0.015698909999969146,
+            0.015681050000011965
+          ],
+          "p50_seconds": 0.015788661999977194,
+          "p95_seconds": 0.016572833000043374,
+          "mean_seconds": 0.015926145300011286
+        },
+        "decoder": {
+          "repeats_seconds": [
+            4.76160973399999,
+            4.69581189400003,
+            4.788691355000083,
+            4.737584176999917,
+            4.726036399999998,
+            4.728016577999938,
+            4.687331814000004,
+            4.818603592999921,
+            5.6288079930000094,
+            6.488080422000053
+          ],
+          "p50_seconds": 4.749596955499953,
+          "p95_seconds": 6.101407828950032,
+          "mean_seconds": 5.006057395999994
+        },
+        "end_to_end": {
+          "repeats_seconds": [
+            9.227192405999972,
+            9.19583464599998,
+            9.29337533499995,
+            9.314983804999997,
+            9.223107208999977,
+            9.191985519000013,
+            9.248750432000065,
+            9.421088419999933,
+            9.196801490999974,
+            9.365302694999968
+          ],
+          "p50_seconds": 9.237971419000019,
+          "p95_seconds": 9.395984843749948,
+          "mean_seconds": 9.267842195799982
+        }
+      },
+      "framework_version": "2.14.1",
+      "strict_checkpoint_reload": true,
+      "trained_epochs": 150,
+      "component_equivalence": "numpy.array_equal with identical channel RNG",
+      "parameters": 12779055,
+      "physical_devices": [
+        "PhysicalDevice(name='/physical_device:CPU:0', device_type='CPU')"
+      ],
+      "checkpoint_unchanged": true
+    }
+  }
+}

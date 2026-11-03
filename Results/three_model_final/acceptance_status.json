@@ -1,0 +1,13 @@
+{
+  "three_model_training_verified": true,
+  "kodak_trials_per_model": 240,
+  "quality_artifacts_verified": true,
+  "logical_flop_coverage_verified": true,
+  "metrics_native_rate_only": true,
+  "timing_scope": "Deep/AD matchedCPU; ISEC separately labelledT4; no three-model latency ranking",
+  "paper_convergence_claimed": false,
+  "zip_verification_pending": false,
+  "github_publication_authorized": true,
+  "archive_sha256": "5058e94ea2f3df3d0975ef655a166b6f218f56121dc1be305e4c036e8b3d85aa",
+  "archive_verified": true
+}

@@ -115,3 +115,13 @@ experiments/roster_validation/runs/
 experiments/roster_validation/tmp/
 
 experiments/native_systems/runs/
+
+# Person1 private checkpoints, raw downloads and local execution state
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+.pytest*/
+Results/person1_colab/
+Results/person1_final/
+Results/NO_GITHUB_PUBLICATION

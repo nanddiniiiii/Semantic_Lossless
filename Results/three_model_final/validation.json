@@ -1,0 +1,9 @@
+{
+  "regression_tests": 64,
+  "passed": 64,
+  "merged_teammate_selection_checks": 2,
+  "merged_checks_passed": 2,
+  "initial_failure": "OneDrive WinError5 during atomic fixture replace; original test failure preserved; rerun outside synced folder passed",
+  "no_architecture_changes": true,
+  "public_checkpoints": false
+}

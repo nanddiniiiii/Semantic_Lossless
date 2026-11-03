@@ -1,0 +1,79 @@
+{
+  "requested_trials": 240,
+  "successful_trials": 240,
+  "failed_trials": 0,
+  "split": "Kodak24 test",
+  "pilot": false,
+  "complete_link_certified": true,
+  "ci_method": "bootstrap24 image means;2000 resamples;seed22",
+  "batch_size": 1,
+  "input_shape": [
+    1,
+    512,
+    768,
+    3
+  ],
+  "complete_training_flops": false,
+  "coverage": "TF graph registered float ops only; custom/unsupported ops and optimizer arithmetic excluded;2FLOPs/MAC",
+  "registered_kernel_flops": 563554557454,
+  "flops_coverage": "TF graph registered float ops only; custom/unsupported ops and optimizer arithmetic excluded;2FLOPs/MAC",
+  "warmup": 3,
+  "repeats": 10,
+  "latency_p50_seconds": 7.064826972999981,
+  "latency_p95_seconds": 7.293350684949968,
+  "precision": "float32",
+  "device": "CPU",
+  "component_seconds": {
+    "encoder": {
+      "median": 3.3521049995001135,
+      "p95": 3.4315935653999987
+    },
+    "channel": {
+      "median": 0.016890703499825577,
+      "p95": 0.01803555835007273
+    },
+    "decoder": {
+      "median": 3.735186302499983,
+      "p95": 3.8529977269498885
+    }
+  },
+  "training_profiles": {},
+  "psnr_db": 34.09904771448322,
+  "psnr_db_ci95": [
+    33.311680098543135,
+    34.86150416012443
+  ],
+  "ssim": 0.9481000209848087,
+  "ssim_ci95": [
+    0.9444095448528725,
+    0.9514092470457156
+  ],
+  "ms_ssim": 0.982820989191532,
+  "ms_ssim_ci95": [
+    0.9813335425220431,
+    0.9841897499809663
+  ],
+  "lpips": 0.03611249833678206,
+  "lpips_ci95": [
+    0.03291658796855094,
+    0.03972522943494065
+  ],
+  "mse": 0.0004358126558751489,
+  "mse_ci95": [
+    0.00034947595839942853,
+    0.0005323986687002008
+  ],
+  "cbr_complex_per_rgb_sample": 0.16666666666666666,
+  "cbr_complex_per_rgb_sample_ci95": [
+    0.16666666666666666,
+    0.16666666666666666
+  ],
+  "one_pass_seconds": 7.364416119799984,
+  "one_pass_seconds_ci95": [
+    7.2631895770330965,
+    7.494166769451121
+  ],
+  "evaluation_device": "CPU",
+  "gpu_latency_verified": false,
+  "device_label_correction": "Original helper hardcoded GPU0; actual Kaggle job is CPU"
+}

@@ -10,6 +10,11 @@ from src.runtime import write_json
 from src import launch,publication
 
 
+@pytest.fixture(autouse=True)
+def no_real_oauth_access_in_delivery_fixtures(monkeypatch):
+    monkeypatch.setattr('src.person1.auth.ensure_fresh_authorization',lambda username:False)
+
+
 def test_recovery_does_not_submit_training_and_retries_download(tmp_path,monkeypatch):
     destination=tmp_path/'Results/team_downloads/1/u__semantic-notebook-1/r'
     write_json(destination/'submitted_version.json',{'kernel':'u/semantic-notebook-1','version':2})
@@ -27,6 +32,18 @@ def test_recovery_does_not_submit_training_and_retries_download(tmp_path,monkeyp
     launch.watch(destination,{},'1',once=True,publish=False)
     assert json.loads((destination/'collector_state.json').read_text())['status']=='retrieved'
     assert len(attempts)==2 and all(cmd[2]=='status' for cmd in calls)
+
+
+@pytest.mark.parametrize('status,terminal',[('CANCEL_ACKNOWLEDGED',True),('CANCEL_REQUESTED',False)])
+def test_kaggle_cancellation_states(tmp_path,monkeypatch,status,terminal):
+    destination=tmp_path/'receipt'
+    write_json(destination/'submitted_version.json',{'kernel':'u/k','version':7})
+    monkeypatch.setattr(launch,'ROOT',tmp_path)
+    monkeypatch.setattr(launch.subprocess,'run',lambda *a,**k:SimpleNamespace(returncode=0,stdout=status,stderr=''))
+    calls=[]
+    monkeypatch.setattr(launch,'finish_retrieval',lambda *a,**k:calls.append(1))
+    launch.watch(destination,{},'1',once=True,publish=False)
+    assert bool(calls)==terminal
 
 
 def test_os_lock_released_after_exception(tmp_path):

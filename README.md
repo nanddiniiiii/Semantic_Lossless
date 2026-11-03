@@ -1,5 +1,18 @@
 # Semantic Lossless
 
+## Verified Person1 three-model results
+
+DeepJSCC and ADJSCC completed150 full epochs each; ISEC completed150 JSCC
+and150 denoiser epochs. Kodak24x10 outputs, checkpoint hashes, quality metrics,
+declared logical FLOPs and measured timing scopes are documented in
+[the three-model report](Results/three_model_final/README.md).
+ISEC used native CBR1/16, DeepJSCC/ADJSCC1/6; this is not an equal-rate ranking.
+ISEC measured14.87dB PSNR; no paper-convergence claim is made.
+Deep/AD timing shares one CPU host; ISEC T4 timing is separately labelled.
+Weights are excluded from Git and retained in the private OneDrive handoff.
+NTSCC+ remains pending and is excluded from this completion scope.
+
+
 Research code for image semantic communication experiments. The project name does not imply that neural models provide lossless reconstruction.
 
 ## Three-team experiments
