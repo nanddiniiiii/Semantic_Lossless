@@ -1,0 +1,43 @@
+{
+  "input_shape": [
+    1,
+    3,
+    512,
+    768
+  ],
+  "batch_size": 1,
+  "precision": "torch.float32",
+  "device": "cuda:0",
+  "warmup": 3,
+  "repeats": 10,
+  "latency_p50_seconds": 0.010160976499719254,
+  "latency_p95_seconds": 0.010194830700038437,
+  "peak_cuda_memory_bytes": 34306048,
+  "registered_kernel_flops": 8021606400,
+  "flop_error": null,
+  "flops_coverage": "registered PyTorch kernels;2FLOPs/MAC;partial, no claimed total",
+  "component_instrumented_seconds": {
+    "encoder": {
+      "total": 0.0024394699994445546,
+      "calls": 1
+    },
+    "decoder": {
+      "total": 0.004744859999846085,
+      "calls": 1
+    }
+  },
+  "component_timing_note": "one synchronized instrumented pass; hook overhead included; absent native components unavailable",
+  "includes_iterative_latent_gradients": false,
+  "logical_inference_flops": 8046152625,
+  "logical_arithmetic_coverage": "complete under declared logical convention; not physical backend instructions",
+  "logical_convention": "MAC=2; elementary arithmetic and sqrt/exp/power counted; RNG internals, memory/index/control and backend instruction implementation excluded. AD FFT uses TensorFlow2.14.1 Eigen source-reference. ISEC counts all50 actual refinements including latent backward; branch/input/seed specific.",
+  "training_logical_flops_by_stage": {
+    "codec": {
+      "global_batch": 32,
+      "per_update": 31876404911,
+      "per_image": 996137653.46875
+    }
+  },
+  "timing_scope": "Native device below; CPU and GPU are not a matched-hardware ranking",
+  "parameters": 156483
+}

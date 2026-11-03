@@ -1,8 +1,0 @@
-{
-  "strict_reload": true,
-  "checkpoint_sha256": "41e7370ef99add4578b7c1cdaf18a78ae9acaa685e8513bbd649c8ba76759e3b",
-  "completed_epochs": {
-    "jscc": 150,
-    "denoiser": 150
-  }
-}

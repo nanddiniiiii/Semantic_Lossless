@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from PIL import Image, ImageOps
@@ -47,23 +46,7 @@ def digest(path):
     return value.hexdigest()
 
 
-def _parent_identity(path):
-    with Image.open(path) as handle:
-        rgb=ImageOps.exif_transpose(handle).convert('RGB')
-        width,height=rgb.size
-        pixels=hashlib.sha256(f'{width}x{height}:RGB:'.encode()+rgb.tobytes()).hexdigest()
-    return width,height,pixels,digest(path)
-
-
-def _parent_identities(files,workers):
-    if workers==1:
-        yield from map(_parent_identity,files)
-    else:
-        with ThreadPoolExecutor(max_workers=workers) as pool:
-            yield from pool.map(_parent_identity,files)
-
-
-def freeze(roots, destination, strict_counts=True, workers=1):
+def freeze(roots, destination, strict_counts=True):
     """Official DIV2K800/Flickr2650 train, DIV2K100 dev, Kodak24 test.
 
     Hash decoded RGB pixels as well as file bytes: lossless re-encodings must not
@@ -82,10 +65,11 @@ def freeze(roots, destination, strict_counts=True, workers=1):
         if not files or (strict_counts and len(files) != count):
             raise ValueError(f'{source}: expected {count} images, found {len(files)} in {root}')
         split = 'test' if source.endswith('_test') else 'val' if source.endswith('_val') else 'train'
-        if not isinstance(workers,int) or not 1<=workers<=4:raise ValueError('Verification workers must be1..4')
-        identities=_parent_identities(files,workers)
-        for position,(path,identity_record) in enumerate(zip(files,identities),1):
-            width,height,pixels,file_sha=identity_record
+        for position,path in enumerate(files,1):
+            with Image.open(path) as handle:
+                rgb = ImageOps.exif_transpose(handle).convert('RGB')
+                width, height = rgb.size
+                pixels = hashlib.sha256(f'{width}x{height}:RGB:'.encode() + rgb.tobytes()).hexdigest()
             if pixels in seen:
                 earlier=seen[pixels]
                 if split!='train' or earlier['split']!='train':
@@ -96,7 +80,7 @@ def freeze(roots, destination, strict_counts=True, workers=1):
                 seen[pixels] = {'path':str(path),'split':split}
             records.append({'source': source, 'split': split,
                             'relative_path': path.relative_to(root).as_posix(),
-                            'sha256': file_sha, 'rgb_sha256': pixels,
+                            'sha256': digest(path), 'rgb_sha256': pixels,
                             'width': width, 'height': height})
             if position%100==0 or position==len(files):
                 print(f'Hashing dataset {source}: {position}/{len(files)} parents',flush=True)

@@ -17,20 +17,8 @@ from .runtime import write_json
 from .sharing import MODEL_NAMES, verify_bundle
 
 
-def credential_token():
-    """Use the user's existing Git Credential Manager without logging secrets."""
-    if shutil.which('git') is None:return None
-    result=subprocess.run(['git','-c','credential.interactive=never','credential','fill'],
-        input='protocol=https\nhost=github.com\n\n',capture_output=True,text=True,timeout=30,
-        env={**os.environ,'GIT_TERMINAL_PROMPT':'0'})
-    if result.returncode:return None
-    values=dict(line.split('=',1) for line in result.stdout.splitlines() if '=' in line)
-    return values.get('password')
-
-
 def github_api(route, payload=None, method=None):
     token=os.environ.get('GH_TOKEN') or os.environ.get('GITHUB_TOKEN')
-    if not token and shutil.which('gh') is None:token=credential_token()
     if token:
         from urllib.request import Request, urlopen
         from urllib.error import HTTPError, URLError
@@ -174,9 +162,6 @@ def publish_event(root, event):
 
 
 def flush(root):
-    if (Path(root)/'Results/NO_GITHUB_PUBLICATION').exists():
-        print('GitHub publication disabled by user; results remain local',flush=True)
-        return
     """Attempt each pending event once; any failure remains recoverable on disk."""
     root=Path(root);outcomes=[]
     queue=root/'Results/publication_queue';queue.mkdir(parents=True,exist_ok=True)

@@ -1,0 +1,31 @@
+{
+  "input_shape": [
+    1,
+    512,
+    768,
+    3
+  ],
+  "batch_size": 1,
+  "precision": "float32",
+  "warmup": 3,
+  "repeats": 10,
+  "latency_p50_seconds": 7.064826972999981,
+  "latency_p95_seconds": 7.293350684949968,
+  "registered_kernel_flops": 563554557454,
+  "flops_coverage": "TF graph registered float ops only; custom/unsupported ops and optimizer arithmetic excluded;2FLOPs/MAC",
+  "device": "CPU",
+  "gpu_latency_verified": false,
+  "note": "Raw historical helper hardcoded GPU0; actual evaluation used CPU",
+  "logical_inference_flops": 567414915685,
+  "logical_arithmetic_coverage": "complete under declared logical convention; not physical backend instructions",
+  "logical_convention": "MAC=2; elementary arithmetic and sqrt/exp/power counted; RNG internals, memory/index/control and backend instruction implementation excluded. AD FFT uses TensorFlow2.14.1 Eigen source-reference. ISEC counts all50 actual refinements including latent backward; branch/input/seed specific.",
+  "training_logical_flops_by_stage": {
+    "codec": {
+      "global_batch": 16,
+      "per_update": 1136204324144,
+      "per_image": 71012770259.0
+    }
+  },
+  "timing_scope": "Native device below; CPU and GPU are not a matched-hardware ranking",
+  "parameters": 12779055
+}
