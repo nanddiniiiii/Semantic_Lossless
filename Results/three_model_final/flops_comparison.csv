@@ -1,0 +1,5 @@
+model,inference_height,inference_width,inference_batch,inference_logical_flops,training_crop,training_global_batch,training_replicas,training_logical_flops_per_update,training_logical_flops_per_image,trainable_parameters,inference_gflops,training_gflops_per_image,logical_scope_complete,hardware_instruction_census,training_stage,inference_iterations
+DeepJSCC,512,768,1,8046152625,128,32,2,31876404911,996137653.46875,156483,8.046152625,0.99613765346875,True,False,,
+ADJSCC,512,768,1,567414915685,128,16,2,1136204324144,71012770259.0,12779055,567.414915685,71.012770259,True,False,,
+ISEC,512,768,1,32286684369621,128,2,2,75553139996,37776569998.0,,32286.684369621,37.776569998,True,False,jscc,50
+ISEC,512,768,1,32286684369621,128,2,2,33553295048,16776647524.0,,32286.684369621,16.776647524,True,False,denoiser,50

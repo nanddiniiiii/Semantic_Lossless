@@ -83,10 +83,10 @@ def collect(root, csv_path=None):
 
         for path in sorted(paths):
             # Keep tiny CPU pilots out of the final comparison table.
-            if 'pilot' in path.parts:continue
+            if any(part in path.parts for part in ('pilot','resume-check','resume-fixture')):continue
             source=path.relative_to(root.resolve()).as_posix()
             if path.name=='per_image.csv' and path.parent.name=='metrics':
-                profile=read_json(path.parent/'profile.json')
+                profile=read_json(path.parent/'profile.json') or read_json(path.parent.parent/'profile.json')
                 summary=read_json(path.parent/'summary.json')
                 fields={key:profile.get(key) for key in ('parameters','registered_kernel_flops',
                     'flops_coverage','latency_p50_seconds','latency_p95_seconds','peak_cuda_memory_bytes',
