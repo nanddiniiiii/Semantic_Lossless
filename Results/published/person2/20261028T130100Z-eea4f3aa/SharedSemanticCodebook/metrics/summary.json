@@ -1,0 +1,20 @@
+{
+  "successful_trials": 72,
+  "failed_trials": 0,
+  "requested_trials": 72,
+  "split": "Kodak24 test",
+  "pilot": false,
+  "mean_over_successful_trials_only": true,
+  "psnr_db": 15.054046835387112,
+  "ssim": 0.42206081230607295,
+  "ms_ssim": 0.3365856313871013,
+  "lpips": 0.8442741309603056,
+  "mae": 0.14211427120284903,
+  "mse": 0.03417326636715896,
+  "cbr_complex_per_rgb_sample": 0.0026041666666666665,
+  "source_bpp": null,
+  "exact_uint8_pixels": 0.0,
+  "one_pass_seconds": 0.2680400224444889,
+  "resnet18_feature_cosine": 0.4823319572541449,
+  "resnet18_prediction_agreement": 0.0
+}

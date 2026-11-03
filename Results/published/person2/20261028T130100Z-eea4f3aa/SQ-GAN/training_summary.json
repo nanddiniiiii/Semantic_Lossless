@@ -1,0 +1,9 @@
+{
+  "steps": 1612,
+  "epochs_entered": 1,
+  "elapsed_seconds": 7205.423303963,
+  "strict_reload": true,
+  "source_codec_only": true,
+  "teacher_cost_included_in_elapsed_time": true,
+  "paper_convergence_reproduced": false
+}

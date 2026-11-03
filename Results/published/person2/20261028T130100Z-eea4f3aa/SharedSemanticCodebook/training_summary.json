@@ -1,0 +1,21 @@
+{
+  "status": "budget_limited_training_completed",
+  "steps": 27649,
+  "images_seen": 55298,
+  "stages_executed": [
+    "codec"
+  ],
+  "stage_optimizer_steps": {
+    "codec": 27649
+  },
+  "observed_encoder_devices": [
+    "cuda:0",
+    "cuda:1"
+  ],
+  "elapsed_seconds": 7202.242384901998,
+  "strict_reload": true,
+  "paper_convergence_reproduced": false,
+  "data_parallel_requested": true,
+  "budget_seconds": 7200.0,
+  "deadline_scope": "soft boundary between steps; checkpoint and one in-flight step may exceed budget"
+}
