@@ -41,3 +41,15 @@ def test_retry_selects_only_failed_model_without_changing_canonical_notebook():
     assert "MODELS_TO_RUN = ['ssc']" in text(bound)
     assert "MODELS_TO_RUN = ASSIGNED[:]" in text(notebook)
     with pytest.raises(ValueError):bind_delivery(notebook,'retry',7200,['not_assigned'])
+
+
+def test_single_gpu_mimo_binding_disables_parallelism_and_keeps_other_slots_unselected():
+    import ast,json
+    from pathlib import Path
+    from src.launch import bind_delivery
+    notebook=json.loads((Path(__file__).parents[2]/'Notebooks/3.ipynb').read_text())
+    bound=bind_delivery(notebook,'mimo-single',14400,['deepjscc_mimo'],single_gpu=True)
+    sources=[''.join(cell['source']) for cell in bound['cells'] if cell['cell_type']=='code']
+    for source in sources:ast.parse(source)
+    assert any("MODELS_TO_RUN = ['deepjscc_mimo']" in source for source in sources)
+    assert any("OVERRIDES.setdefault(_model, {})['data_parallel']=False" in source for source in sources)

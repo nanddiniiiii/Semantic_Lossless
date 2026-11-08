@@ -34,7 +34,7 @@ def notebook_revision(notebook):
     return revisions[0]
 
 
-def bind_delivery(notebook, run_id, training_seconds=14400, models=None):
+def bind_delivery(notebook, run_id, training_seconds=14400, models=None, single_gpu=False):
     import copy
     notebook=copy.deepcopy(notebook)
     if models is not None:
@@ -53,6 +53,8 @@ def bind_delivery(notebook, run_id, training_seconds=14400, models=None):
             if line.startswith('DELIVERY_RUN_ID = '):
                 if found:raise ValueError('Duplicate notebook delivery identity')
                 lines[index]=replacement;found=True
+        if single_gpu:
+            lines=[line+"for _model in MODELS_TO_RUN: OVERRIDES.setdefault(_model, {})['data_parallel']=False\n" if line.startswith('OVERRIDES={}') else line for line in lines]
         cell['source']=lines
     if not found:
         cell=next(c for c in notebook['cells'] if c.get('cell_type','code')=='code')
@@ -173,6 +175,7 @@ def main(team):
     parser.add_argument('--username',help='Your Kaggle username; prompted if omitted')
     parser.add_argument('--config-dir',help='Optional Kaggle CLI credential directory')
     parser.add_argument('--training-seconds',type=int,default=14400,help='Per-model training budget, at most14400 seconds')
+    parser.add_argument('--single-gpu',action='store_true',help='Request one P100 GPU and disable DataParallel for selected models')
     parser.add_argument('--models',nargs='+',help='Run only these assigned model IDs, in this order')
     parser.add_argument('--asset',action='append',default=[],help='Additional Kaggle dataset owner/slug containing model assets; repeat as needed')
     parser.add_argument('--interval',type=int,default=1800)
@@ -243,14 +246,20 @@ def dispatch(team,args,username):
         # Kaggle can mask absent private kernels with403. Creation still requires
         # explicit authorization plus an exact owner-filtered list check.
         import csv,io
-        listing=subprocess.run(['kaggle','kernels','list','--mine','--csv','--page-size','100'],env=env,capture_output=True,text=True,check=True,timeout=90)
-        lines=listing.stdout.splitlines()
-        header=next((index for index,line in enumerate(lines) if line.lstrip('\ufeff').startswith('ref,title,')),None)
-        if header is None:raise RuntimeError('Kaggle owned inventory did not contain the expected CSV header')
-        rows=list(csv.DictReader(io.StringIO('\n'.join(lines[header:]).lstrip('\ufeff'))))
-        if not rows or 'ref' not in rows[0]:raise RuntimeError('Cannot verify owned notebook inventory before creation')
-        if len(rows)>=100:raise RuntimeError('Owned notebook inventory requires pagination; refusing to infer absence')
-        if any(row.get('ref')==ref for row in rows):raise RuntimeError('Notebook exists but is inaccessible; refusing replacement')
+        seen=set()
+        for page in range(1,101):
+            listing=subprocess.run(['kaggle','kernels','list','--mine','--csv','--page-size','100','--page',str(page)],env=env,capture_output=True,text=True,check=True,timeout=90)
+            lines=listing.stdout.splitlines()
+            header=next((index for index,line in enumerate(lines) if line.lstrip('\ufeff').startswith('ref,title,')),None)
+            if header is None:raise RuntimeError('Cannot verify paginated owned notebook inventory')
+            rows=list(csv.DictReader(io.StringIO('\n'.join(lines[header:]).lstrip('\ufeff'))))
+            refs={row.get('ref') for row in rows}
+            if None in refs:raise RuntimeError('Invalid owned notebook inventory')
+            if ref in refs:raise RuntimeError('Notebook exists but is inaccessible; refusing replacement')
+            if len(rows)<100:break
+            if refs <= seen:raise RuntimeError('Owned listing pagination made no progress')
+            seen.update(refs)
+        else:raise RuntimeError('Owned notebook inventory exceeds bounded pagination')
         existing=None
         print('Explicit first-creation authorized; notebook absent from owned inventory',flush=True)
     if existing is not None:
@@ -262,21 +271,22 @@ def dispatch(team,args,username):
     run_id=uuid.uuid4().hex
     destination=ROOT/'Results'/'team_downloads'/team/(username+'__'+slug)/run_id
     destination.mkdir(parents=True,exist_ok=False)
+    accelerator='NvidiaTeslaP100' if getattr(args,'single_gpu',False) else 'NvidiaTeslaT4'
     metadata={'id':ref,'title':slug,'code_file':'notebook.ipynb','language':'python',
         'kernel_type':'notebook','is_private':True,'enable_gpu':True,'enable_internet':True,
-        'machine_shape':'NvidiaTeslaT4','dataset_sources':DATASETS+args.asset,'kernel_sources':[],
+        'machine_shape':accelerator,'dataset_sources':DATASETS+args.asset,'kernel_sources':[],
         'competition_sources':[],'model_sources':[]}
     write_json(destination/'submission.json',{'kernel':ref,'team':team,'datasets':DATASETS+args.asset,
-        'source_revision':revision,'training_seconds_per_model':args.training_seconds,'selected_models':getattr(args,'models',None),
+        'source_revision':revision,'training_seconds_per_model':args.training_seconds,'selected_models':getattr(args,'models',None),'accelerator':accelerator,'single_gpu':getattr(args,'single_gpu',False),
         'previous_version':existing,'run_id':run_id,
         'note':'Stable kernel identity; do not create another version before retrieval'})
     print('Submitting private notebook:',ref,flush=True)
     print('The three common image datasets will be attached automatically. Additional private model assets may require setup.',flush=True)
     with tempfile.TemporaryDirectory(prefix='semantic-kaggle-') as tmp:
         folder=Path(tmp)
-        (folder/'notebook.ipynb').write_text(json.dumps(bind_delivery(notebook,run_id,args.training_seconds,getattr(args,'models',None))),encoding='utf-8')
+        (folder/'notebook.ipynb').write_text(json.dumps(bind_delivery(notebook,run_id,args.training_seconds,getattr(args,'models',None),getattr(args,'single_gpu',False))),encoding='utf-8')
         (folder/'kernel-metadata.json').write_text(json.dumps(metadata,indent=2),encoding='utf-8')
-        subprocess.run(['kaggle','kernels','push','-p',str(folder),'--accelerator','NvidiaTeslaT4'],env=env,check=True,timeout=180)
+        subprocess.run(['kaggle','kernels','push','-p',str(folder),'--accelerator',accelerator],env=env,check=True,timeout=180)
     submitted=current_version(username,slug)
     if submitted is None or submitted!=(existing or 0)+1:
         raise RuntimeError('Could not verify submitted notebook version; inspect Kaggle before retrying')
